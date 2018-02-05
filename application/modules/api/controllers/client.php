@@ -26,17 +26,21 @@ class Client extends REST_Controller {
 	//////////////////////////////////
 	function __construct(){
 		parent::__construct();
-		$this->load->controller('testcase','testcase_controller');
+		$this->consumer_key = CONSUMER_KEY();
+		$this->consumer_secret = CONSUMER_SECRET();
+		$this->consumer_ttl = CONSUMER_TTL();
+		$this->load->model('global_model', 'GlobalMD');	
+		// $this->load->controller('testcase','testcase_controller');
 		if(!empty($_GET['token'])){
 			$token = $_GET['token'];
 			$this->token = $token;
 		}else{
-			$response = array('msg' => api_message(05),);
+			$response = array($this->GlobalMD->responses_msg(00))
 			$this->response($response);
 		}
 	}
 	public function index_get(){
-		$this->token = $this->testcase_controller->index();
+		// $this->token = $this->testcase_controller->index();
 		$response = array('token'=>$this->token,);
 		$this->response($response);
 	}

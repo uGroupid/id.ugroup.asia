@@ -16,6 +16,7 @@ class Global_model extends CI_Model{
 		}
 		$this->db->select('*');
 		$this->db->where('code',$code);
+		$this->db->from('conf_responses');
 		$query = $this->db->get();
 		return $query->result_array();
 	}

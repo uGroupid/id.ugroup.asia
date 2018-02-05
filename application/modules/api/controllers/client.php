@@ -35,7 +35,7 @@ class Client extends REST_Controller {
 			$token = $_GET['token'];
 			$this->token = $token;
 		}else{
-			$response = array($this->GlobalMD->responses_msg(00))
+			$response = array($this->GlobalMD->responses_msg(00));
 			$this->response($response);
 		}
 	}

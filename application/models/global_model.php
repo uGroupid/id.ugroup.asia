@@ -1,9 +1,8 @@
 <?php
-
 class Global_model extends CI_Model{
 		function __construct(){
 			parent::__construct();
-			$this->load->driver('cache');
+			
 	}
 	public function query_global($sql){
      $query = $this->db->query($sql);

@@ -26,7 +26,7 @@ class Client extends REST_Controller {
 	//////////////////////////////////
 	function __construct(){
 		parent::__construct();
-		$this->load->model('global_model', 'GlobalMD');	
+		// $this->load->model('global_model', 'GlobalMD');	
 		$this->consumer_key = CONSUMER_KEY();
 		$this->consumer_secret = CONSUMER_SECRET();
 		$this->consumer_ttl = CONSUMER_TTL();
@@ -41,7 +41,7 @@ class Client extends REST_Controller {
 		}
 	}
 	private function load_error(){
-		return $this->GlobalMD->responses_msg(00);
+		return array('msg' => 'not found');
 	}
 	public function index_get(){
 		// $this->token = $this->testcase_controller->index();

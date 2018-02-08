@@ -1,41 +1,15 @@
-<?php
-class Global_model extends CI_Model{ 
+ore<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require APPPATH .'/libraries/ISPConfig_Controller.php';
+class Core_service extends MX_Controller {
 	public $token;
 	public $uid;
 	public $storage;
-	public $keys;
 	function __construct(){
-		parent::__construct();	
-		$this->load->library('JWT');
-		$this->keys = CORE_KEY();
+		parent::__construct();
 		$this->consumer_key = CONSUMER_KEY();
 		$this->consumer_secret = CONSUMER_SECRET();
 		$this->consumer_ttl = CONSUMER_TTL();
-		$this->token = null;
 	}
-	public function query_global($sql){
-     $query = $this->db->query($sql);
-          return $query->result_array();
-	} 
-	
-	public function load_log($data){
-		$this->mongo_db->insert('log_api',$data);
-	}
-	private function responses_msg($code=00){
-		$code = "$code";
-		$response =  $this->mongo_db->select('code,message')->where(array('code' => "$code"))->get('conf_responses');
-		return $response;
-	}
-	
-	public function msg($code=00){
-		$msg = $this->responses_msg($code);
-		if(!empty($msg)){
-			return $msg;
-		}else{
-			return  $this->responses_msg(2000);
-		}
-	}
-	
 	public function create_token($uid_pub=null,$storage_pub=null){
 		$this->storage = $storage_pub;
 	    $this->uid = $uid_pub;
@@ -72,6 +46,8 @@ class Global_model extends CI_Model{
         }
     }
 	private function Initialize_Token(){
+	 
+	   
        $this->token = $this->jwt->encode(array(
             'key' => $this->consumer_secret,
             'uid' => $this->uid,
@@ -81,8 +57,8 @@ class Global_model extends CI_Model{
         ), $this->consumer_secret);
         return $this->token;
 	}
+		
 	
-/////////////////// End Noi dung ////////////
-
 }
+
 ?>

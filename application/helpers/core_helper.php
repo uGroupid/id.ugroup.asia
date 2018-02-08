@@ -9,12 +9,12 @@ if(! function_exists('microsecond')){
 }
 if(! function_exists('CONSUMER_KEY')){
 	function CONSUMER_KEY() {
-		 return '3e3b60cb43f7b521ae631956640649e6'; ;
+		 return 'MIIJRAIBADANBgkqhkiG9w0BAQEFAASCCS4wggkqAgEAAoICAQCs4hvT5V6LXEql'; ;
 	}
 }
 if(! function_exists('CONSUMER_SECRET')){
 	function CONSUMER_SECRET() {
-		 return 'GYdW8sg7Y6pOul5iyYPCKOK93qQdgKyOmP7okTWCHpQ0d3SlLLG+DERYic2rMWjofVYjHC7Kn+sM5lgRyo89Tw=='; 
+		 return '9JFk59Tjk9SdNJ4zN0NZDBNlDkVHzsorpJJnIMyqfgrkyv6YrhWeB9aAz6QC'; 
 	}
 }
 if(! function_exists('CONSUMER_TTL')){
@@ -22,8 +22,8 @@ if(! function_exists('CONSUMER_TTL')){
 		 return  7200; 
 	}
 }
-if(! function_exists('keys')){
-	function keys() {
+if(! function_exists('CORE_KEY')){
+	function CORE_KEY() {
 		 $ci = &get_instance();
 		 return $ci->config->item('encryption_key');
 	}
@@ -52,10 +52,6 @@ if(! function_exists('help_response')){
 		header('Content-Type: application/json');
 	}
 }
-
-
-
-
 if(! function_exists('core_token_csrf')){
 	function core_token_csrf(){
 		$ci = &get_instance();

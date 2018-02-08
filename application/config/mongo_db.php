@@ -25,20 +25,20 @@
 |
 */
 
-$config['mongo_db']['active'] = 'uhosting';
+$config['mongo_db']['active'] = 'ugroup';
 
-$config['mongo_db']['uhosting']['no_auth'] = FALSE;
-$config['mongo_db']['uhosting']['hostname'] = 'localhost';
-$config['mongo_db']['uhosting']['port'] = '27017';
-$config['mongo_db']['uhosting']['username'] = 'uhosting';
-$config['mongo_db']['uhosting']['password'] = '112233fF';
-$config['mongo_db']['uhosting']['database'] = 'uhosting';
-$config['mongo_db']['uhosting']['db_debug'] = TRUE;
-$config['mongo_db']['uhosting']['return_as'] = 'array';
-$config['mongo_db']['uhosting']['write_concerns'] = (int)1;
-$config['mongo_db']['uhosting']['journal'] = TRUE;
-$config['mongo_db']['uhosting']['read_preference'] = NULL;
-$config['mongo_db']['uhosting']['read_preference_tags'] = NULL;
+$config['mongo_db']['ugroup']['no_auth'] = FALSE;
+$config['mongo_db']['ugroup']['hostname'] = 'localhost';
+$config['mongo_db']['ugroup']['port'] = '27017';
+$config['mongo_db']['ugroup']['username'] = 'ureg';
+$config['mongo_db']['ugroup']['password'] = '112233fF';
+$config['mongo_db']['ugroup']['database'] = 'client_ugroup';
+$config['mongo_db']['ugroup']['db_debug'] = TRUE;
+$config['mongo_db']['ugroup']['return_as'] = 'array';
+$config['mongo_db']['ugroup']['write_concerns'] = (int)1;
+$config['mongo_db']['ugroup']['journal'] = TRUE;
+$config['mongo_db']['ugroup']['read_preference'] = NULL;
+$config['mongo_db']['ugroup']['read_preference_tags'] = NULL;
 
 // $config['mongo_db']['test']['no_auth'] = FALSE;
 // $config['mongo_db']['test']['hostname'] = 'localhost';

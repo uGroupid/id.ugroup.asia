@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('JWT','redis','mongo_db','database','session','encrypt');
+$autoload['libraries'] = array('JWT','redis','mongo_db','session','parser','encrypt');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('JWT','redis','mongo_db','database','session','en
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','core','restfulmessage');
+$autoload['helper'] = array('url','core','template','dom');
 
 
 /*

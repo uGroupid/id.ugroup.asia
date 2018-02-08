@@ -1,0 +1,12 @@
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.ureg_api_logs" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.conf_extend_contacts" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.conf_postal_contacts" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.conf_responses" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.conf_role" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.conf_status" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.conf_status_transfer" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.contacts" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.reseller" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.users" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.log_token" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "client_ugroup.log_api" }

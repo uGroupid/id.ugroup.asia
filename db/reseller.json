@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000038" }, "name" : "uGroup System", "url_return" : "id.ugroup.asia", "app_id" : "id.ugroup.asia", "secret_key" : "IUbD65ECpyKjF1KQgrWkwQKCAQEA3sLpjei9L1wqNxHJEMxiklsg", "id_users" : 0, "balancer" : 0, "date_create" : null, "date_update" : null, "status" : 0 }

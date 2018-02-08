@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000039" }, "name" : "Test", "code" : "Test123123", "username" : "Test", "passwords" : "12123123123123", "contact_defaults" : 1, "contact_owner" : 1, "contact_bill" : 1, "contact_tech" : 1, "contact_admin" : 1, "contact_moderator" : 1, "role" : 1, "balancer" : 1, "date_create" : null, "date_update" : null, "status" : 1, "id_rell" : 25 }

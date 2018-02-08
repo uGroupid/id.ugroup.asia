@@ -1,0 +1,35 @@
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000005" }, "code" : "1000", "message" : "Command completed successfully" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000006" }, "code" : "1001", "message" : "Command completed successfully; action pending" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000007" }, "code" : "1300", "message" : "Command completed successfully; no messages" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000008" }, "code" : "1301", "message" : "Command completed successfully; ack to dequeue" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000009" }, "code" : "1500", "message" : "Command completed successfully; ending session" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00000a" }, "code" : "2000", "message" : "Unknown command" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00000b" }, "code" : "2001", "message" : "Command syntax error" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00000c" }, "code" : "2002", "message" : "Command use error" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00000d" }, "code" : "2003", "message" : "Required parameter missing" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00000e" }, "code" : "2004", "message" : "Parameter value range error" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00000f" }, "code" : "2005", "message" : "Parameter value syntax error" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000010" }, "code" : "2100", "message" : "Unimplemented protocol version" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000011" }, "code" : "2101", "message" : "Unimplemented command" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000012" }, "code" : "2102", "message" : "Unimplemented option" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000013" }, "code" : "2103", "message" : "Unimplemented extension" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000014" }, "code" : "2104", "message" : "Billing failure" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000015" }, "code" : "2105", "message" : "Object is not eligible for renewal" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000016" }, "code" : "2106", "message" : "Object is not eligible for transfer" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000017" }, "code" : "2200", "message" : "Authentication error" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000018" }, "code" : "2201", "message" : "Authorization error" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000019" }, "code" : "2202", "message" : "Invalid authorization information" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00001a" }, "code" : "2300", "message" : "Object pending transfer" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00001b" }, "code" : "2301", "message" : "Object not pending transfer" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00001c" }, "code" : "2302", "message" : "Object exists" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00001d" }, "code" : "2303", "message" : "Object does not exist" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00001e" }, "code" : "2304", "message" : "Object status prohibits operation" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00001f" }, "code" : "2305", "message" : "Object association prohibits operation" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000020" }, "code" : "2306", "message" : "Parameter value policy error" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000021" }, "code" : "2307", "message" : "Unimplemented object service" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000022" }, "code" : "2308", "message" : "Data management policy violation" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000023" }, "code" : "2400", "message" : "Command failed" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000024" }, "code" : "2500", "message" : "Command failed; server closing connection" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000025" }, "code" : "2501", "message" : "Authentication error; server closing connection" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000026" }, "code" : "2502", "message" : "Session limit exceeded; server closing connection" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000027" }, "code" : "00", "message" : "Command failed" }

@@ -1,0 +1,10 @@
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00002d" }, "name" : "ok" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00002e" }, "name" : "pendingDelete" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a00002f" }, "name" : "clientDeleteProhibited" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000030" }, "name" : "pendingRenew" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000031" }, "name" : "clientRenewProhibited" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000032" }, "name" : "pendingTransfer" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000033" }, "name" : "clientTransferProhibited" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000034" }, "name" : "pendingUpdate" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000035" }, "name" : "clientUpdateProhibited" }
+{ "_id" : { "$oid" : "5a7c125ce0135b0f1a000036" }, "name" : "pendingCreate" }

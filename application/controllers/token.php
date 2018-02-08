@@ -13,7 +13,6 @@ Class Token extends REST_Controller {
 		$this->consumer_ttl = CONSUMER_TTL();
 		$this->responses = $this->load_missing();
 		$this->token = null;
-		
 	}
 	public function index_get(){
 		$this->responses = array($this->GlobalMD->msg());
@@ -33,8 +32,8 @@ Class Token extends REST_Controller {
 		
 		$this->response($this->responses);
 	}
+	
 	public function create_get(){
-		
 		if(isset($_GET)){
 			if(!empty($_GET)){
 				if(isset($_GET['param'])){
@@ -56,6 +55,7 @@ Class Token extends REST_Controller {
 		}
 		$this->response($this->responses);
 	}
+
 	public function info_get(){
 		
 		$this->response($this->responses);

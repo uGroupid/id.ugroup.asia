@@ -14,10 +14,7 @@ class Test extends MX_Controller {
 		$this->consumer_secret = CONSUMER_SECRET();
 		$this->consumer_ttl = CONSUMER_TTL();
 		$this->token = null;
-		
 	}
-
-	
 	public function index(){
 		// $code = ;
 		// $response =  $this->mongo_db->select('code,message')->where(array('code' => "$code"))->get('conf_responses');

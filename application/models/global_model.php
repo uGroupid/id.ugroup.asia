@@ -12,6 +12,8 @@ class Global_model extends CI_Model{
 		$this->consumer_secret = CONSUMER_SECRET();
 		$this->consumer_ttl = CONSUMER_TTL();
 		$this->token = null;
+		$this->storage = null;
+		$this->uid = null;
 	}
 	public function query_global($sql){
      $query = $this->db->query($sql);
@@ -36,14 +38,23 @@ class Global_model extends CI_Model{
 		}
 	}
 	
-	public function create_token($uid_pub=null,$storage_pub=null){
-		$this->storage = $storage_pub;
-	    $this->uid = $uid_pub;
-		if($this->uid == null || $this->storage == null){
-			return $this->Initialize_Token($this->uid,$this->storage);
+	public function create_token($param=null){
+		if(isset($param)){
+			if(!empty($param)){
+				// $this->storage = $param['storage_pub'];
+				// $this->uid = $param['storage_pub'];
+				if($this->uid == null || $this->storage == null){
+					return $this->Initialize_Token($this->uid,$this->storage);
+				}else{
+					return $this->Initialize_Token($this->uid,$this->storage);
+				}
+			}else{
+				return $this->Initialize_Token($this->uid,$this->storage);
+			}
 		}else{
 			return $this->Initialize_Token($this->uid,$this->storage);
 		}
+		
 	}
 	public function validate($token_pub)
     {
@@ -57,7 +68,7 @@ class Global_model extends CI_Model{
             } else {
                 return true;
             }
-        } catch (Exception $e) {
+        }catch (Exception $e) {
             return false;
         }
     }
@@ -72,17 +83,38 @@ class Global_model extends CI_Model{
         }
     }
 	private function Initialize_Token(){
-       $this->token = $this->jwt->encode(array(
+		$param = array(
             'key' => $this->consumer_secret,
             'uid' => $this->uid,
             'param' => $this->storage,
-            'expires_in' => date(DATE_ISO8601, strtotime("now")),
+            'expires_in' => date(DATE_ISO8601, strtotime("now")+(int)$this->consumer_ttl),
             'ttl' => $this->consumer_ttl,
-        ), $this->consumer_secret);
-        return $this->token;
+            'created' => date(DATE_ISO8601, strtotime("now")),
+        );
+		$result_insert = $this->install_token_to_db($param);
+		if($result_insert==true){
+			 $this->token = $this->jwt->encode(array(
+				'key' => $this->consumer_secret,
+				'id_token' => $result_insert->{'$id'},
+				'uid' => $this->uid,
+				'param' => $this->storage, 
+				'expires_in' => date(DATE_ISO8601, strtotime("now")+(int)$this->consumer_ttl),
+				'ttl' => $this->consumer_ttl,
+			), $this->consumer_secret);
+			return $this->token;
+		}else{
+			return $this->token;
+		}
+	}
+	private function install_token_to_db($param){
+		try{
+			$response = $this->mongo_db->insert('token', $param);
+			return $response;
+		}catch (Exception $e) {
+            return null;
+        }
 	}
 	
-/////////////////// End Noi dung ////////////
 
 }
 ?>

@@ -38,12 +38,12 @@ Class Token extends REST_Controller {
 			if(!empty($_GET)){
 				if(isset($_GET['param'])){
 					if(!empty($_GET['param'])){
+						$params = $_GET['param'];
 						$this->token = $this->GlobalMD->create_token();
 						$this->responses = array(
 							'data' => array(
 								'message' => $this->GlobalMD->msg(1000),
 								'responses' => array(
-									'token' => $this->token,
 									'token_validate' => $this->GlobalMD->validate($this->token),
 									'token_decode' => $this->GlobalMD->decode($this->token),
 								),

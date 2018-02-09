@@ -23,10 +23,12 @@ class Test extends MX_Controller {
 		$param_Transfer = array(
 			'param' => json_encode(array('account' => 'VNP08R22',),true),
 		);
+		
 		$response = $this->rest->get('/token/create',$param_Transfer);
 		// $DeCryptReponse = decrypt_key($response->data->responses,$this->keys);
 		// var_dump(json_decode($DeCryptReponse,true));
 		var_dump(json_encode($response->data));
+		// var_dump(json_encode($param_Transfer));
 	}
 
 	

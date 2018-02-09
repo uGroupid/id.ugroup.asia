@@ -1,0 +1,10 @@
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000001"), 
+    "name" : "Individual", 
+    "code" : "ind"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000002"), 
+    "name" : "Organizationalinternational\r\ninternational\r\n", 
+    "code" : "org"
+}

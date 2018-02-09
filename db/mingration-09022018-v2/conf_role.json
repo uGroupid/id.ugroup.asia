@@ -1,0 +1,15 @@
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000028"), 
+    "code" : NumberInt(1), 
+    "name" : "Admin"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000029"), 
+    "code" : NumberInt(2), 
+    "name" : "User"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a00002a"), 
+    "code" : NumberInt(3), 
+    "name" : "Reseller"
+}

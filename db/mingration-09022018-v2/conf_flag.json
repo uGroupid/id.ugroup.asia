@@ -1,0 +1,50 @@
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a00002d"), 
+    "code" : NumberInt(1), 
+    "name" : "ok"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a00002e"), 
+    "code" : NumberInt(9), 
+    "name" : "pendingDelete"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a00002f"), 
+    "code" : NumberInt(8), 
+    "name" : "clientDeleteProhibited"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000030"), 
+    "code" : NumberInt(7), 
+    "name" : "pendingRenew"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000031"), 
+    "code" : NumberInt(6), 
+    "name" : "clientRenewProhibited"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000032"), 
+    "code" : NumberInt(3), 
+    "name" : "pendingTransfer"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000033"), 
+    "code" : NumberInt(0), 
+    "name" : "clientTransferProhibited"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000034"), 
+    "code" : NumberInt(4), 
+    "name" : "pendingUpdate"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000035"), 
+    "code" : NumberInt(5), 
+    "name" : "clientUpdateProhibited"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000036"), 
+    "code" : NumberInt(2), 
+    "name" : "pendingCreate"
+}

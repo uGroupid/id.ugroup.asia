@@ -1,0 +1,10 @@
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a00002b"), 
+    "code" : NumberInt(1), 
+    "name" : "active"
+}
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a00002c"), 
+    "code" : NumberInt(2), 
+    "name" : "deacative"
+}

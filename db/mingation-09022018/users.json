@@ -1,0 +1,38 @@
+{ 
+    "_id" : ObjectId("5a7c125ce0135b0f1a000039"), 
+    "name" : "Administator", 
+    "code" : "GID5a7c125ce0135b0f1a000039", 
+    "username" : "Administator", 
+    "passwords" : "2f6d228b27cb84e9fb4ac4e0ba393c8b", 
+    "contact_defaults" : ObjectId("5a7c125ce0135b0f1a000037"), 
+    "contact_owner" : ObjectId("5a7cdd348d29612ffc3a9cf6"), 
+    "contact_bill" : ObjectId("5a7cdd9d8d29612ffc3a9cf7"), 
+    "contact_tech" : ObjectId("5a7cddab8d29612ffc3a9cf8"), 
+    "contact_admin" : ObjectId("5a7cddb28d29612ffc3a9cf9"), 
+    "contact_moderator" : ObjectId("5a7cddb68d29612ffc3a9cfa"), 
+    "role" : NumberInt(1), 
+    "balancer" : NumberInt(1), 
+    "date_create" : "2018-01-01 00:00:00", 
+    "date_update" : "2018-01-01 00:00:00", 
+    "status" : NumberInt(1), 
+    "id_rell" : ObjectId("5a7c125ce0135b0f1a000038")
+}
+{ 
+    "_id" : ObjectId("5a7ce1d68d29612ffc3a9d45"), 
+    "name" : "Reseller", 
+    "code" : "Reseller001", 
+    "username" : "Reseller", 
+    "passwords" : "2f6d228b27cb84e9fb4ac4e0ba393c8b", 
+    "contact_defaults" : ObjectId("5a7c125ce0135b0f1a000037"), 
+    "contact_owner" : ObjectId("5a7cdd348d29612ffc3a9cf6"), 
+    "contact_bill" : ObjectId("5a7cdd9d8d29612ffc3a9cf7"), 
+    "contact_tech" : ObjectId("5a7cddab8d29612ffc3a9cf8"), 
+    "contact_admin" : ObjectId("5a7cddb28d29612ffc3a9cf9"), 
+    "contact_moderator" : ObjectId("5a7cddb68d29612ffc3a9cfa"), 
+    "role" : NumberInt(3), 
+    "balancer" : NumberInt(999999999), 
+    "date_create" : "2018-01-01 00:00:00", 
+    "date_update" : "2018-01-01 00:00:00", 
+    "status" : NumberInt(1), 
+    "id_rell" : ObjectId("5a7c125ce0135b0f1a000038")
+}

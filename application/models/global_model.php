@@ -26,7 +26,12 @@ class Global_model extends CI_Model{
 	private function responses_msg($code=00){
 		$code = "$code";
 		$response =  $this->mongo_db->select('code,message')->where(array('code' => "$code"))->get('conf_responses');
-		return $response;
+		if(!empty($response)){
+			return $response[0];
+		}else{
+			return $response;
+		}
+		
 	}
 	
 	public function msg($code=00){
@@ -41,11 +46,37 @@ class Global_model extends CI_Model{
 	public function create_token($param=null){
 		if(isset($param)){
 			if(!empty($param)){
-				// $this->storage = $param['storage_pub'];
-				// $this->uid = $param['storage_pub'];
-				if($this->uid == null || $this->storage == null){
-					return $this->Initialize_Token($this->uid,$this->storage);
-				}else{
+				try{
+					$x = json_decode($param);
+					if(isset($x->username)){
+						if(!empty($x->username)){ 
+							if(isset($x->password)){
+								if(!empty($x->password)){ 
+									$username = $x->username;
+									$password = md5($x->password);
+									$resultClients = $this->getUser($username,$password);
+									if(!empty($resultClients)){
+										$this->storage = $resultClients[0];
+										$this->uid = $this->getObjectId($this->storage);
+									}
+									if($this->uid == null || $this->storage == null){
+										return $this->Initialize_Token($this->uid,$this->storage);
+									}else{
+										return $this->Initialize_Token($this->uid,$this->storage);
+									}
+								}else{
+									return $this->Initialize_Token($this->uid,$this->storage);
+								}
+							}else{
+								return $this->Initialize_Token($this->uid,$this->storage);
+							}
+						}else{
+							return $this->Initialize_Token($this->uid,$this->storage);
+						}
+					}else{
+						return $this->Initialize_Token($this->uid,$this->storage);
+					}
+				}catch (Exception $e) {
 					return $this->Initialize_Token($this->uid,$this->storage);
 				}
 			}else{
@@ -54,7 +85,14 @@ class Global_model extends CI_Model{
 		}else{
 			return $this->Initialize_Token($this->uid,$this->storage);
 		}
-		
+	}
+	private function getUser($username=null,$password=null){
+		try{
+			$response = $this->mongo_db->where(array('username'=>$username,'passwords'=>$password))->get('users');
+			return $response;
+		}catch (Exception $e) {
+            return null;
+        }
 	}
 	public function validate($token_pub)
     {
@@ -82,22 +120,25 @@ class Global_model extends CI_Model{
             return false;
         }
     }
-	private function Initialize_Token(){
-		$param = array(
+	private function getObjectId($param) {
+		return (string)$param["_id"];
+	}
+	private function Initialize_Token($uid=null,$storage=null){
+		$param_log = array(
             'key' => $this->consumer_secret,
-            'uid' => $this->uid,
-            'param' => $this->storage,
+            'uid' => $uid,
+            'param' => $storage,
             'expires_in' => date(DATE_ISO8601, strtotime("now")+(int)$this->consumer_ttl),
             'ttl' => $this->consumer_ttl,
             'created' => date(DATE_ISO8601, strtotime("now")),
         );
-		$result_insert = $this->install_token_to_db($param);
+		$result_insert = $this->install_token_to_db($param_log);
 		if($result_insert==true){
 			 $this->token = $this->jwt->encode(array(
 				'key' => $this->consumer_secret,
 				'id_token' => $result_insert->{'$id'},
-				'uid' => $this->uid,
-				'param' => $this->storage, 
+				'uid' => $uid,
+				'param' => $storage, 
 				'expires_in' => date(DATE_ISO8601, strtotime("now")+(int)$this->consumer_ttl),
 				'ttl' => $this->consumer_ttl,
 			), $this->consumer_secret);

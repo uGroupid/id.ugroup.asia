@@ -455,7 +455,7 @@ class REST_Controller extends MX_Controller {
 		$log = array(
 			'uri' => $this->uri->uri_string(),
 			'method' => $this->request->method,
-			'params' => $this->_args ? serialize($this->_args) : null,
+			'params' => $this->_args ? json_encode($this->_args) : null,
 			'api_key' => isset($this->rest->key) ? $this->rest->key : '',
 			'ip_address' => $this->input->ip_address(),
 			'time' => function_exists('now') ? now() : time(),

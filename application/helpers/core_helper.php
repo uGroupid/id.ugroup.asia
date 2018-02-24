@@ -7,6 +7,11 @@ if(! function_exists('microsecond')){
 		return $s; 
 	}
 }
+if(! function_exists('getObjectId')){
+	function getObjectId($param) {
+		return $param->{'$id'};
+	}
+}
 if(! function_exists('CONSUMER_KEY')){
 	function CONSUMER_KEY() {
 		 return 'MIIJRAIBADANBgkqhkiG9w0BAQEFAASCCS4wggkqAgEAAoICAQCs4hvT5V6LXEql'; ;

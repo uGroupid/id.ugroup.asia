@@ -6,7 +6,7 @@ class Test extends MX_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->library('rest');
-		$config =  array('server' => 'http://id.ugroup.asia');
+		$config =  array('server' => base_url());
 		$this->rest->initialize($config);
 		$this->load->model('global_model', 'GlobalMD');	
 		$this->keys = CORE_KEY();
@@ -15,19 +15,27 @@ class Test extends MX_Controller {
 		$this->consumer_ttl = CONSUMER_TTL();
 		$this->token = null;
 	}
+	private function install_token_to_db($param){
+		try{
+			$response = $this->mongo_db->insert('token', $param);
+			return $response;
+		}catch (Exception $e) {
+            return null;
+        }
+	}
 	public function index(){
-		// $code = ;
-		// $response =  $this->mongo_db->select('code,message')->where(array('code' => "$code"))->get('conf_responses');
-		// $response = $this->mongo_db->select(array('code', 'message'))->get('conf_responses');
-		// echo base_url();
-		$param_Transfer = array(
-			'param' => json_encode(array('account' => 'VNP08R22',),true),
+		$param = array(
+			'param' => json_encode(array(
+				'username' => 'Reseller',
+				'password' => '123123F',
+			)),
 		);
-		
-		$response = $this->rest->get('/token/create',$param_Transfer);
+		$response = $this->rest->get('token/create',$param);
 		// $DeCryptReponse = decrypt_key($response->data->responses,$this->keys);
 		// var_dump(json_decode($DeCryptReponse,true));
-		var_dump(json_encode($response->data));
+		echo "<pre>";
+		print_r($response);
+		echo "</pre>";
 		// var_dump(json_encode($param_Transfer));
 	}
 

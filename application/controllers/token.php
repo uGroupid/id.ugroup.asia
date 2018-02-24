@@ -22,12 +22,10 @@ Class Token extends REST_Controller {
 		$this->responses =  array($this->GlobalMD->msg());
 		$this->response($this->responses);
 	}
-	
 	public function load_missing(){
 		return $this->responses = $this->GlobalMD->msg(2001);
 		
 	}
-	
 	public function check_get(){
 		
 		$this->response($this->responses);
@@ -39,13 +37,13 @@ Class Token extends REST_Controller {
 				if(isset($_GET['param'])){
 					if(!empty($_GET['param'])){
 						$params = $_GET['param'];
-						$this->token = $this->GlobalMD->create_token();
+						$this->token = $this->GlobalMD->create_token($params);
+						$x = json_decode($params);
 						$this->responses = array(
-							'data' => array(
+							'responses' => array(
 								'message' => $this->GlobalMD->msg(1000),
-								'responses' => array(
-									'token_validate' => $this->GlobalMD->validate($this->token),
-									'token_decode' => $this->GlobalMD->decode($this->token),
+								'result' => array(
+									'data' => array('token'=>$this->token,'token_validate' => $this->GlobalMD->validate($this->token)),
 								),
 							),
 						);

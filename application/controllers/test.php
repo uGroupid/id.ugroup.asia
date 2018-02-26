@@ -31,12 +31,7 @@ class Test extends MX_Controller {
 			)),
 		);
 		$response = $this->rest->get('token/create',$param);
-		// $DeCryptReponse = decrypt_key($response->data->responses,$this->keys);
-		// var_dump(json_decode($DeCryptReponse,true));
-		echo "<pre>";
-		print_r($response);
-		echo "</pre>";
-		// var_dump(json_encode($param_Transfer));
+		return $response;
 	}
 
 	

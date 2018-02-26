@@ -58,37 +58,35 @@ class Global_model extends CI_Model{
 									if(!empty($resultClients)){
 										$this->storage = $resultClients[0];
 										$this->uid = $this->getObjectId($this->storage);
-									}
-									if($this->uid == null || $this->storage == null){
 										return $this->Initialize_Token($this->uid,$this->storage);
 									}else{
-										return $this->Initialize_Token($this->uid,$this->storage);
+										return $this->msg(2201);
 									}
 								}else{
-									return $this->Initialize_Token($this->uid,$this->storage);
+									return $this->msg(2003);
 								}
 							}else{
-								return $this->Initialize_Token($this->uid,$this->storage);
+								return $this->msg(2005);
 							}
 						}else{
-							return $this->Initialize_Token($this->uid,$this->storage);
+							return $this->msg(2003);
 						}
 					}else{
-						return $this->Initialize_Token($this->uid,$this->storage);
+						return $this->msg(2005);
 					}
 				}catch (Exception $e) {
-					return $this->Initialize_Token($this->uid,$this->storage);
+					return $this->msg(2400);
 				}
 			}else{
-				return $this->Initialize_Token($this->uid,$this->storage);
+				return $this->msg(2001);
 			}
 		}else{
-			return $this->Initialize_Token($this->uid,$this->storage);
+			return $this->msg(2000);
 		}
 	}
 	private function getUser($username=null,$password=null){
 		try{
-			$response = $this->mongo_db->where(array('username'=>$username,'passwords'=>$password))->get('users');
+			$response = $this->mongo_db->select(array('username','name','code','contact_defaults','contact_owner','contact_bill','contact_tech','contact_admin','contact_moderator','balancer','status','id_rell'))->where(array('username'=>$username,'passwords'=>$password))->get('users');
 			return $response;
 		}catch (Exception $e) {
             return null;
@@ -106,7 +104,7 @@ class Global_model extends CI_Model{
             } else {
                 return true;
             }
-        }catch (Exception $e) {
+        }catch(Exception $e) {
             return false;
         }
     }

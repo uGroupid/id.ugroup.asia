@@ -65,7 +65,7 @@ class Client extends REST_Controller {
 			'auth',
 		);
 		$param_json = json_encode($param,true);
-		$this->token = $this->core_controller->create_token($uid,$param_json);
+		// $this->token = $this->core_controller->create_token($uid,$param_json);
 		$response = array('token'=>$this->token,);
 		$this->response($response);
 	}

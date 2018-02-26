@@ -2,7 +2,7 @@
 require APPPATH . '/libraries/REST_Controller.php';
 Class Token extends REST_Controller {
 	public $responses;
-	public $token;
+	public $access_token;
 	public $keys;
 	public $token_validate;
 	function __construct(){
@@ -13,8 +13,8 @@ Class Token extends REST_Controller {
 		$this->consumer_secret = CONSUMER_SECRET();
 		$this->consumer_ttl = CONSUMER_TTL();
 		$this->responses = $this->load_missing();
-		$this->token = false;
-		$this->token_validate = false;
+		$this->access_token = false;
+		$this->token_validate = 'false';
 	}
 	public function index_get(){
 		$this->responses = array($this->GlobalMD->msg());
@@ -35,19 +35,19 @@ Class Token extends REST_Controller {
 					if(!empty($_GET['param'])){
 						$params = $_GET['param'];
 						$x = json_decode($params);
-						if(isset($x->token)){
-							if(!empty($x->token)){
-								$this->token_validate = $this->GlobalMD->validate($x->token);
+						if(isset($x->access_token)){
+							if(!empty($x->access_token)){
+								$this->token_validate = $this->GlobalMD->validate($x->access_token);
 								if($this->token_validate==true){
-									$this->token = $this->token_validate;
+									$this->token_validate = 'true';
 								}else{
-									$this->token = $this->GlobalMD->msg(2303);
+									$this->token_validate = 'false';
 								}
 							}else{
-								$this->token = $this->GlobalMD->msg(2005);
+								$this->access_token = $this->GlobalMD->msg(2005);
 							}
 						}else{
-							$this->token = $this->GlobalMD->msg(2003);
+							$this->access_token = $this->GlobalMD->msg(2003);
 						}
 						$this->responses = array(
 							'responses' => array(
@@ -55,7 +55,7 @@ Class Token extends REST_Controller {
 								'result' => array(
 									'data' => array(
 										'token_validate'=> $this->token_validate,
-										'access_token'=> $x->token,
+										'access_token'=> $x->access_token,
 										
 									),
 								),
@@ -78,17 +78,17 @@ Class Token extends REST_Controller {
 						$params = $_GET['param'];
 						$x = json_decode($params);
 						if(isset($x->username) || isset($x->password)){
-							$this->token = $this->GlobalMD->create_token($params);
+							$this->access_token = $this->GlobalMD->create_token($params);
 							
 						}else{
-							$this->token = $this->GlobalMD->msg(2001);
+							$this->access_token = $this->GlobalMD->msg(2001);
 						}
 						$this->responses = array(
 							'responses' => array(
 								'message' => $this->GlobalMD->msg(1000),
 								'result' => array(
 									'data' => array(
-										'access_token'=> $this->token,
+										'access_token'=> $this->access_token,
 									),
 								),
 							),
@@ -109,19 +109,19 @@ Class Token extends REST_Controller {
 					if(!empty($_GET['param'])){
 						$params = $_GET['param'];
 						$x = json_decode($params);
-						if(isset($x->token)){
-							if(!empty($x->token)){
-								$this->token_validate = $this->GlobalMD->validate($x->token);
+						if(isset($x->access_token)){
+							if(!empty($x->access_token)){
+								$this->token_validate = $this->GlobalMD->validate($x->access_token);
 								if($this->token_validate==true){
-									$this->token = $this->GlobalMD->decode($x->token);
+									$this->access_token = $this->GlobalMD->decode($x->access_token);
 								}else{
-									$this->token = $this->GlobalMD->msg(2303);
+									$this->access_token = $this->GlobalMD->msg(2303);
 								}
 							}else{
-								$this->token = $this->GlobalMD->msg(2005);
+								$this->access_token = $this->GlobalMD->msg(2005);
 							}
 						}else{
-							$this->token = $this->GlobalMD->msg(2003);
+							$this->access_token = $this->GlobalMD->msg(2003);
 						}
 						$this->responses = array(
 							'responses' => array(
@@ -130,7 +130,7 @@ Class Token extends REST_Controller {
 									'data' => array(
 										'params'=> $x,
 										'token_validate'=> $this->token_validate,
-										'access_token_info'=> $this->token,
+										'access_token_info'=> $this->access_token,
 										
 									),
 								),

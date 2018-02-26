@@ -1,6 +1,6 @@
 <?php
 class Global_model extends CI_Model{ 
-	public $token;
+	public $access_token;
 	public $uid;
 	public $storage;
 	public $keys;
@@ -11,7 +11,7 @@ class Global_model extends CI_Model{
 		$this->consumer_key = CONSUMER_KEY();
 		$this->consumer_secret = CONSUMER_SECRET();
 		$this->consumer_ttl = CONSUMER_TTL();
-		$this->token = null;
+		$this->access_token = null;
 		$this->storage = null;
 		$this->uid = null;
 	}
@@ -95,8 +95,8 @@ class Global_model extends CI_Model{
 	public function validate($token_pub)
     {
         try {
-			$this->token = $token_pub;
-            $decodeToken = $this->jwt->decode($this->token, $this->consumer_secret);
+			$this->access_token = $token_pub;
+            $decodeToken = $this->jwt->decode($this->access_token, $this->consumer_secret);
             $ttl_time = strtotime($decodeToken->expires_in);
             $now_time = strtotime(date(DATE_ISO8601, strtotime("now")));
             if(($now_time - $ttl_time) > $decodeToken->ttl) {
@@ -111,8 +111,8 @@ class Global_model extends CI_Model{
 	public function decode($token_pub)
     {
         try{
-			$this->token = $token_pub;
-            $decodeToken = $this->jwt->decode($this->token, $this->consumer_secret);
+			$this->access_token = $token_pub;
+            $decodeToken = $this->jwt->decode($this->access_token, $this->consumer_secret);
             return $decodeToken;
         }catch (Exception $e) {
             return false;
@@ -132,7 +132,7 @@ class Global_model extends CI_Model{
         );
 		$result_insert = $this->install_token_to_db($param_log);
 		if($result_insert==true){
-			 $this->token = $this->jwt->encode(array(
+			 $this->access_token = $this->jwt->encode(array(
 				'key' => $this->consumer_secret,
 				'id_token' => $result_insert->{'$id'},
 				'uid' => $uid,
@@ -140,14 +140,35 @@ class Global_model extends CI_Model{
 				'expires_in' => date(DATE_ISO8601, strtotime("now")+(int)$this->consumer_ttl),
 				'ttl' => $this->consumer_ttl,
 			), $this->consumer_secret);
-			return $this->token;
+			return $this->access_token;
 		}else{
-			return $this->token;
+			return $this->access_token;
 		}
+	}
+	public function info_contact($contact_id=null,$id_users=null){
+		try{
+			if(isset($contact_id) || isset($id_users)){
+				if(!empty($contact_id) || !empty($id_users)){
+					$response = $this->mongo_db->get_where('contacts', array('_id' => new \MongoId($contact_id), 'id_users' => new \MongoId($id_users)));
+					if(!empty($response)){
+						return $response[0];
+					}else{
+						 return $this->msg(2303);
+					}
+				}else{
+					 return $this->msg(2003);
+				}
+			}else{
+				 return $this->msg(2005);
+			}
+			
+		}catch (Exception $e) {
+            return $this->msg(2005);
+        }
 	}
 	private function install_token_to_db($param){
 		try{
-			$response = $this->mongo_db->insert('token', $param);
+			$response = $this->mongo_db->insert('access_token', $param);
 			return $response;
 		}catch (Exception $e) {
             return null;

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
-class Client extends REST_Controller {
+class Contact extends REST_Controller {
 	public $responses;
 	public $access_token;
 	public $uid;
@@ -72,16 +72,16 @@ class Client extends REST_Controller {
 			}
 		}
 	}
-	public function contact_suppend(){
+	public function suppend(){
 		
 	}
-	public function contact_remove(){
+	public function remove(){
 		
 	}
-	public function contact_add(){
+	public function add(){
 		
 	}
-	public function contact_info_get(){
+	public function info_get(){
 		if(isset($_GET)){
 			if(!empty($_GET)){
 				if(isset($_GET['access_token'])){
@@ -104,7 +104,7 @@ class Client extends REST_Controller {
 												'result' => array(
 													'data' => array(
 														'access_token'=> $this->access_token,
-														'info'=> $this->GlobalMD->info_contact($this->contact_id,$this->uid),
+														'response' => $this->GlobalMD->info_contact($this->contact_id,$this->uid),
 													),
 												),
 											),
@@ -135,9 +135,7 @@ class Client extends REST_Controller {
 		$this->response($this->responses);
 	}
 	
-	public function create_contact_get(){
-		
-	}
+	
 	
 	
 }

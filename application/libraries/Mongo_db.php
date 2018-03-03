@@ -1,18 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-/**
-* CodeIgniter MongoDB Active Record Library
-*
-* A library to interface with the NoSQL database MongoDB. For more information see http://www.mongodb.org
-*
-* @package CodeIgniter
-* @author Intekhab Rizvi | www.intekhab.in | me@intekhab.in
-* @copyright Copyright (c) 2014, Intekhab Rizvi.
-* @license http://www.opensource.org/licenses/mit-license.php
-* @link http://intekhab.in
-* @version Version 1.0
-* Thanks to Alex Bilbie (http://alexbilbie.com) for help.
-*/
 
 Class Mongo_db{
 
@@ -63,6 +50,7 @@ Class Mongo_db{
 		$this->config = $this->CI->config->item('mongo_db');
 		$this->param = $param;
 		$this->connect();
+		
 	}
 
 	/**
@@ -216,6 +204,8 @@ Class Mongo_db{
 			{
 				$options = array('username'=>$this->username, 'password'=>$this->password);
 			}
+			
+			
 			$this->connect = new MongoClient($dns, $options);
 			$this->db = $this->connect->selectDB($this->database);
 			$this->db = $this->connect->{$this->database};
@@ -224,11 +214,11 @@ Class Mongo_db{
 		{
 			if(isset($this->debug) == TRUE && $this->debug == TRUE)
 			{
-				show_error("Unable to connect to MongoDB: {$e->getMessage()}", 500);
+				// show_error("Unable to connect to MongoDB: {$e->getMessage()}", 500);
 			}
 			else
-			{
-				show_error("Unable to connect to MongoDB", 500);
+			{	
+				//show_error("Unable to connect to MongoDB", 500);
 			}
 		}
 	}
